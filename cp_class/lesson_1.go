@@ -1,9 +1,9 @@
 package main
 
 import (
-    "fmt"
-    "os"
-    "strconv"
+	"fmt"
+	"os"
+	"strconv"
 )
 
 // Find primes in the range 2..n and return them in a slice
@@ -50,14 +50,13 @@ func sieveOfEratosthenes(n int) []int {
 }
 
 func main() {
-    s := os.Args[1]
+	s := os.Args[1]
 
-    if n, err := strconv.ParseInt(s,10,64); err != nil{
-        fmt.Fprintln(os.Stderr,"invalid int:", s)
-    } else {
-        p := sieveOfEratosthenes(int(n))
-        fmt.Printf("%d:%v\n", len(p), p)
-    }
-
+	if n, err := strconv.ParseInt(s, 10, 64); err != nil {
+		fmt.Fprintln(os.Stderr, "invalid int:", s)
+	} else {
+		p := sieveOfEratosthenes(int(n))
+		fmt.Printf("%d:%v\n", len(p), p)
+	}
 
 }
