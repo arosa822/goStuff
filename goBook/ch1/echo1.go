@@ -52,13 +52,11 @@ func main() {
 	// 1.2 print index and value of each argument per line
 	// 1.3 benchmark the different methods
 
-    //1.2 
+	//1.2
 
-    // start the loop
-    for i := 1; i < len(os.Args); i++{
-        fmt.Printf("%d: %s\n",i,os.Args[i])
-    }
-
-
+	// start the loop
+	for i := 1; i < len(os.Args); i++ {
+		fmt.Printf("%d: %s\n", i, os.Args[i])
+	}
 
 }
