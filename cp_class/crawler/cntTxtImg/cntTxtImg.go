@@ -15,8 +15,10 @@ func main() {
         fmt.Fprintf(os.Stderr," findlink1: %v\n", err)
         os.Exit(1)
     }
-    for _, link :=range visit(nil, doc) {
-        fmt.Println(link)
+   // for _, link :=range visit(nil, doc) {
+   //     fmt.Println(link)
+     for _, images := range countImg(nil,doc){
+         fmt.Println(images)
     }
 }
 
@@ -39,4 +41,16 @@ func visit(links []string, n *html.Node) []string {
         links = visit(links,c)
     }
     return links
+}
+
+func countImg(images []string, n *html.Node) []string {
+    if n.Type == html.ElementNode && n.Data == "img" {
+        fmt.Println(n.Attr)
+        for _, i := range n.Attr {
+            if i.Key == "src" {
+                images = append(images, i.Val)
+            }
+        }
+    }
+    return images
 }
