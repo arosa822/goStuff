@@ -42,6 +42,7 @@ func visit(links []string, n *html.Node) []string {
     }
     return links
 }
+// attempt to count images
 
 func countImg(images []string, n *html.Node) []string {
     if n.Type == html.ElementNode && n.Data == "img" {
@@ -51,6 +52,9 @@ func countImg(images []string, n *html.Node) []string {
                 images = append(images, i.Val)
             }
         }
+    }
+    for c := n.FirstChild; c != nil; c = c.NextSibling {
+        images = countImg(images,c)
     }
     return images
 }
